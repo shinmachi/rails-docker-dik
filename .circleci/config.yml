@@ -37,13 +37,13 @@ jobs:
       - run:
           name: test
           command: bundle exec rake test
-          
+
   deploy:
     docker:
       - image: circleci/ruby:2.7
     steps:
       - checkout
-      - step_remote_docker:
+      - setup_remote_docker:
           version: 19.03.13
       - heroku/install
       - run:
