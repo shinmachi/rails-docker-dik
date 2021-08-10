@@ -1,11 +1,11 @@
-version: 2.1 
+version: 2.1
 orbs:
   ruby: circleci/ruby@1.1.2
 
 jobs:
   build:
     docker:
-      - image: circleci/ruby:2.7 
+      - image: circleci/ruby:2.7
     working_directory: ~/rails-docker-dik/src
     steps:
       - checkout:
@@ -35,7 +35,7 @@ test:
         command: bundle exec rails db:migrate
     - run:
         name: test
-        command: bundle exec ratk test
+        command: bundle exec rake test
 
 workflows:
   version: 2
